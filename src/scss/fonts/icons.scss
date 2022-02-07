@@ -1,0 +1,65 @@
+// заготовленные стили шрифта
+
+%ic {
+	/* use !important to prevent issues with browser extensions that change fonts */
+	font-family: "icons";
+	font-style: normal;
+	font-weight: normal;
+	font-variant: normal;
+	text-transform: none;
+	line-height: 1;
+
+	/* Better Font Rendering =========== */
+	-webkit-font-smoothing: antialiased;
+	-moz-osx-font-smoothing: grayscale;
+}
+
+/* [class^="icon-"], */
+[class*=" icon-"] {
+	&::before {
+		@extend %ic;
+		display: block;
+	}
+}
+
+// Часть кода скопированная из скаченного архива шрифта (файл: style.scss)
+
+.icon-arrow-bottom:before {
+	content: "\e900";
+}
+.icon-cart:before {
+	content: "\e901";
+}
+.icon-compare:before {
+	content: "\e902";
+}
+.icon-favorite:before {
+	content: "\e903";
+}
+.icon-footer-clock:before {
+	content: "\e904";
+}
+.icon-footer-email:before {
+	content: "\e905";
+}
+.icon-footer-location:before {
+	content: "\e906";
+}
+.icon-footer-phone:before {
+	content: "\e907";
+}
+.icon-location:before {
+	content: "\e908";
+}
+.icon-logo:before {
+	content: "\e909";
+}
+.icon-search:before {
+	content: "\e90a";
+}
+.icon-spoiler-arrow:before {
+	content: "\e90b";
+}
+.icon-user:before {
+	content: "\e90c";
+}

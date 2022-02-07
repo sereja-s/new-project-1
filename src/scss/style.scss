@@ -1,0 +1,145 @@
+@import "base/mixins";
+
+// Подключаем шрифты=================================================================================================================
+// Подключение кириллицы (добавить в конце строки):  &display=swap&subset=cyrillic-ext
+
+@import url("https://fonts.googleapis.com/css2?family=Montserrat:wght@500;600;700&display=swap");
+
+// Подключить если есть локальные файлы шрифтов
+@import "fonts/fonts";
+
+// Подключить если есть файл иконочного шрифта
+@import "fonts/icons";
+
+// Шрифт по умолчанию
+$fontFamily: "Montserrat";
+$fontSize: 18px;
+
+// ПЕРЕМЕННЫЕ:
+
+// минимальная ширина страницы
+$minWidth: 320;
+// ширина полотна (макета)
+$maxWidth: 1920;
+// Ограничивающий контейнер (0-нет ограничения):
+$maxWidthContainer: 1620; /* учли поля что-бы контент не прилипал к краям экрана (указаны в .container) Здесь: 15*2=30px */
+$md1: $maxWidthContainer + 12;
+$md2: 991.98;
+$md3: 767.98;
+$md4: 479.98;
+
+$mainColor: #000;
+$mainDarkColor: #141414;
+
+//$orangeColor: #e89f71;
+//$grayColor: #898989;
+//$dackgrayColor: #616161;
+
+// обнуление Общие параметры
+@import "base/null";
+
+body {
+	font-weight: 500;
+	color: $mainColor;
+	font-family: $fontFamily;
+	font-size: $fontSize;
+	/* &._lock {
+		overflow: hidden;
+	} */
+	// скролл заблокирован
+	.lock & {
+		overflow: hidden;
+		touch-action: none;
+	}
+}
+
+// оболочка
+.wrapper {
+	width: 100%;
+	min-height: 100%;
+	overflow: hidden;
+	display: flex;
+	flex-direction: column;
+
+	// прижимаем footer
+	> main {
+		flex: 1 1 auto;
+	}
+
+	// фикс для слайдеров
+	> * {
+		min-width: 0;
+	}
+}
+
+// основная сетка
+.container {
+	max-width: $maxWidthContainer + px;
+	margin: 0 auto;
+	padding: 0 15px; // поля, что бы содержимое контейнера не прилипало к краям
+	overflow: hidden;
+	@media (max-width: 768px) {
+		padding: 0 10px;
+	}
+
+	// @media (max-width: $md1+px) {
+	// 	max-width: 970px;
+	// }
+	// @media (max-width: $md2+px) {
+	// 	min-width: 750px;
+	// }
+	// @media (max-width: $md3+px) {
+	// 	max-width: none;
+	// 	padding: 0 10px;
+	// }
+}
+
+//***************************************** Готовые классы**********************************************
+
+//Выводим значёк рос.рубль:
+.rub::after {
+	content: "₽";
+}
+
+// *********************************** Применение класса "ibg" для картинок (адаптив изображения): ********************************
+
+.ibg {
+	background-position: center;
+	background-size: cover;
+	background-repeat: no-repeat;
+	/* position: relative; */
+}
+
+.ibg img {
+	width: 0;
+	height: 0;
+	position: absolute;
+	top: 0;
+	left: 0;
+	opacity: 0;
+	visibility: hidden;
+}
+
+//************************************* стили клонированной картинки ***********************************************************
+
+._flyImage._ibg {
+	opacity: 1;
+	position: fixed;
+	z-index: 100;
+	transition: all 1s ease 0s;
+}
+
+// Подключение базовых стилей шаблонов (заготовок) и вспомогательных классов
+
+// подключение конкретных стилей
+@import "base";
+
+// подключение стилей общих элементов проекта
+@import "common";
+
+// подключение стилей отделльных блоков
+@import "header";
+@import "footer";
+
+// подключение стилей отдельныз страниц
+@import "home";

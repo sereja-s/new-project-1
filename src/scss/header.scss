@@ -1,0 +1,243 @@
+/* .header {
+} */
+.header__top {
+	background-color: $mainDarkColor;
+	color: #fff;
+}
+.top-header {
+	padding: 10px 0;
+}
+.top-header__container {
+	display: flex;
+	align-items: center;
+	gap: 20px; // отстуы безопасности между колонками элементов блока
+	min-height: 50px;
+}
+.top-header__menu {
+	flex: 1 1 auto;
+}
+/* .menu {
+} */
+/* .menu__body {
+} */
+.menu__list {
+	display: flex;
+	flex-wrap: wrap;
+	row-gap: 5px; // отстуы безопасности между рядами элементов блока
+	@include adaptiv-value("column-gap", 60, 20, 1); // подключили адаптивное свойство из src/base/mixins.scss
+}
+/* .menu__item {
+} */
+.menu__link {
+	font-size: 16px;
+	line-height: 20px;
+}
+.top-header__user {
+	display: inline-flex;
+	align-items: center;
+	font-weight: 600;
+	line-height: 22px;
+	// для иконки user:
+	&::before {
+		font-size: 28px; // так задаётся размер иконок в иконочном шрифте
+		margin-right: 15px;
+	}
+}
+
+//============================ МЕНЮ-БУРГЕР ===================================
+
+/* нарисовали иконку меню-бургер с одним span в html-файле */
+.icon-menu {
+	display: none;
+	@media (max-width: 768px) {
+		/* рисуем и покажем иконку(меню-бургер) */
+		//@include adaptiv-value("margin-left", 32, 15, 1);
+		z-index: 5;
+		display: block;
+		position: relative;
+		flex: 0 0 30px; // вместо width: 30px; для flex-элемента
+		height: 18px;
+		cursor: pointer;
+		background-color: transparent;
+		/* с помощью 3-х объектов будем рисовать полоски иконки бургер-меню */
+		span,
+		&::before,
+		&::after {
+			content: ""; /* обязательно добавляется */
+			left: 0;
+			position: absolute;
+			/* в процентах от родителя высота и ширина: */
+			height: 2px;
+			width: 100%;
+			transition: all 0.5s ease 0s;
+			background-color: #fff;
+		}
+
+		/* рисуем первую полоску: */
+		&::before {
+			top: 0;
+		}
+		/* рисуем вторую полоску: */
+		&::after {
+			bottom: 0;
+		}
+		/* рисуем третью полоску: */
+		span {
+			top: 50%;
+			transform: scale(1) translate(0px, -50%); /* здесь -50% вверх */
+		}
+
+		/* 32 */
+		/* анимируем иконку(меню-бургер) при нажатии на неё: */
+
+		/* 1-уберём полоску по середине: */
+		&._active span {
+			transform: scale(0) translate(0px, -50%);
+		}
+		/* 2-повернём верхнюю полоску: */
+		&._active::before {
+			top: 50%; /* полоска опустится с верху на середину */
+			transform: rotate(-45deg) translate(0px, -50%); /* полоска повернётся против часовой стрелки */
+		}
+		/* 3-повернём нижнюю полоску: */
+		&._active::after {
+			bottom: 50%; /* полоска поднимется с верху на середину */
+			transform: rotate(45deg) translate(0px, 50%); /* полоска повернётся против часовой стрелки */
+		}
+	}
+}
+
+//==============================================================================================================================
+
+/* .header__body {
+} */
+.body-header {
+	padding: 10px 0;
+	background-color: #ecf1f2;
+}
+.body-header__container {
+	display: flex;
+	min-height: 70px;
+	align-items: center;
+}
+.body-header__logo {
+	// Подключим логотип из файла стилей иконочного шрифта
+	@extend %ic;
+	@extend .icon-logo;
+	font-size: 42px;
+	color: $mainDarkColor;
+}
+.body-header__search {
+	flex: 1 1 auto; // позволили блоку расширяться (сужаться)
+	padding-right: 20px;
+	@include adaptiv-value("padding-left", 158, 20, 1); // подключили адаптивное свойство из src/base/mixins.scss
+}
+.search-header {
+	max-width: 377px;
+	background-color: #ecf1f2;
+	border-radius: 3px;
+	position: relative;
+	border: 1px solid rgba(4, 4, 4, 0.5);
+}
+.search-header__button {
+	position: absolute;
+	background-color: transparent;
+	height: 41px; // высота кнопки с иконкой поиска
+	width: 41px; // ширина кнопки с иконкой поиска
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	top: 0;
+	left: 8px;
+	font-size: 14px; // размер иконки
+	color: rgba(0, 0, 0, 0.5);
+}
+.search-header__input {
+	width: 100%;
+	background-color: transparent;
+	border-radius: 3px;
+	height: 41px;
+	color: $mainColor;
+	padding: 0 20px 0 50px;
+	&::placeholder {
+		color: rgba(0, 0, 0, 0.5);
+	}
+}
+
+//==========================================================================================================================
+
+.body-header__actions {
+}
+.actions-header {
+	display: flex;
+	align-items: center;
+	column-gap: 30px;
+}
+.actions-header__location {
+	display: inline-flex;
+	align-items: center;
+	margin: 0 25px 0 0;
+	font-weight: 600;
+	&::before {
+		font-size: 24px;
+		margin: 0 10px 0 0;
+	}
+}
+.icon-location {
+}
+.actions-header__phones {
+}
+.phones-header {
+}
+.phones-header__items {
+}
+.phones-header__item {
+	//display: flex;
+	//position: relative;
+}
+.phones-header__phone {
+	font-weight: 600;
+	line-height: 22px;
+	white-space: nowrap;
+}
+.phones-header__arrow {
+	color: #e8aa31;
+	font-size: 14px;
+	margin: 0 0 0 17px;
+}
+.icon-arrow-bottom {
+}
+.phones-header__list {
+	//display: none;
+	position: absolute;
+	//top: 100%;
+	//width: 100%;
+	//left: 0;
+	border-radius: 10px;
+	background-color: rgb(245, 234, 234);
+	padding: 15px;
+
+	li {
+		&:not(:last-child) {
+			margin-bottom: 18px;
+		}
+	}
+}
+.actions-header__icon-favorite {
+}
+.icon-favorite {
+}
+.actions-header__cart {
+}
+.cart-header {
+}
+.cart-header__icon {
+}
+.icon-cart {
+}
+.cart-header__body {
+}
+.cart-header__summ {
+}
+.cart-header__link {
+}
