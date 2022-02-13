@@ -26,8 +26,16 @@ import * as allFunctions from "./files/functions.js";
 // проверка потдержки браузером формата изображений webp и добавление класса webp или no-webp для HTML:
 allFunctions.isWebp();
 
-// МЕНЮ-БУРГЕР и его анимация (в шапке сайта):
+// МЕНЮ-БУРГЕР и его анимация:
 allFunctions.menuInit();
+
+// ПОПАП
+allFunctions.initPopups();
+
+
+
+
+
 
 // подключение Swiper-слайдера:
 import Swiper, { Navigation, Pagination } from 'swiper';

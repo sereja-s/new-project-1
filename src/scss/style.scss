@@ -37,6 +37,8 @@ $mainDarkColor: #141414;
 
 // обнуление Общие параметры
 @import "base/null";
+// стили попап (модальных окон)
+@import "base/popup";
 
 body {
 	font-weight: 500;

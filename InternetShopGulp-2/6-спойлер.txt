@@ -1,0 +1,64 @@
+					// Zlatmax-1:51:00
+
+					// название спойлера:
+					<div data-spoilers class="phones-header__items">
+
+					// Элементы спойлера
+						<div class="phones-header__item">
+
+							<a href="tel:8500777777" class="phones-header__phone">8-500-777-77-77</a>
+							<button type="button" data-spoiler class="phones-header__arrow icon-arrow-bottom"> Заголовок спойлера (здесь: стрелочка иконочного шрифта, при нажатии на которую выпадает список спойлера) </button>
+
+							// контент (тело) спойлера:
+							<ul class="phones-header__list">
+								<li><a href="tel:8500777797" class="phones-header__phone">8-500-777-77-97</a></li>
+								<li><a href="tel:8500777797" class="phones-header__phone">8-500-777-77-97</a></li>
+								<li><a href="tel:8500777787" class="phones-header__phone">8-500-777-77-87</a></li>
+								<li><a href="tel:8500777787" class="phones-header__phone">8-500-777-77-87</a></li>
+								<li><a href="tel:8500777777" class="phones-header__phone">8-500-777-77-77</a></li>
+							</ul>
+
+						</div>
+
+					
+//===============================================================================================================================
+
+.phones-header__item {	
+	position: relative;
+}
+
+.phones-header__arrow {
+	color: #e8aa31;
+	font-size: 14px;
+	margin: 0 0 0 17px;
+	transition: transform 0.7s ease 0s;
+	&._active {
+		transform: rotate(-180deg);
+	}
+}
+
+.phones-header__list {
+	//display: none;
+	position: absolute;
+	top: 100%;
+	width: 100%;
+	left: 0;
+	border-radius: 10px;
+	background-color: rgb(245, 234, 234);
+	padding: 15px;
+	margin: 33px 0 0 0;
+	box-shadow: 0 0 5px rgba(0, 0, 0, 0.5);
+
+	li {
+		&:not(:last-child) {
+			margin-bottom: 18px;
+		}
+	}
+}
+
+//=============================================================================================================================
+
+в файле: src/js/app.js подключаем файл работы спойлера: 
+
+// Спойлер 
+import "./files/spoiler.js"

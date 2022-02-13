@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="ru">
 
 
 <head>
@@ -11,8 +11,8 @@
 </head>
 
 <body>
-	<!-- <div class="wrapper"> -->
-	<header class="header">
+	<div class="wrapper">
+		<header id="header" class="header lock-padding">
 	<div class="header__top top-header">
 		<div class="top-header__container container">
 			<div class="top-header__menu menu">
@@ -57,7 +57,8 @@
 							</ul>
 						</div>
 					</div>
-					<button type="button" class="phones-header__callback">Заказать звонок</button>
+					<!-- <button type="button" class="phones-header__callback">Заказать звонок</button> -->
+					<a href="#callback" class="header__phone popup-link">Заказать звонок</a>
 				</div>
 				<a href="#" class="actions-header__icon-favorite icon-favorite"></a>
 				<div class="actions-header__cart cart-header">
@@ -72,11 +73,52 @@
 	</div>
 	<div class="header__catalog catalog-header"></div>
 </header>
-	<main class="page"></main>
-	<footer>
+		<main class="page"></main>
+		<footer>
 
 </footer>
-	<!-- </div> -->
+	</div>
+	<!-- Пишем попапы: -->
+<div id="callback" class="popup">
+
+	<!-- добавили ссылку в которой ссылаемся на фиксированную шапку с id="header" (чтобы при нажатии на область вокруг модального окна, это окно закрывалось ) -->
+	<!-- <a href="#header" class="popup__area"></a> -->
+	<!-- тело попапа: -->
+	<div class="popup__body">
+
+		<!-- Составляющие попапа: -->
+		<div class="popup__content">
+
+			<!-- закрывающая кнопка (ссылка) в которой также ссылаемся на фиксированную шапку с id="header" (чтобы при закрытии модального окна, не возвращаться на начало страницы) -->
+			<a href="#header" class="popup__close close-popup">X</a>
+			<!-- Контент попапа: -->
+			<div class="popup__title">Это модальное окно №1</div>
+			<div class="popup__text">
+				Любите всем
+				сердцем,
+				мечтайте по крупному,
+				Пусть нежность в груди прорастает цветами,
+				Есть в каждом моменте мелодия хрупкая,
+				И эту мелодию пишем мы сами.
+
+				Поймите, всё держится только на чувствах,
+				На нотах, в которых душа и харизма.
+				Ах, жаль, что нас с детства не учат искусству
+				Как быть композитором собственной жизни.
+
+				Куда ни ступи - всюду стены и тайны,
+				Одни только ангелы знают ответы,
+				Какая удача услышать случайно
+				Как дышит огромная наша планета.
+
+				Вот пара аккордов - любовь и гармония,
+				В них скрыто спасение этого века.
+				Сплетать из душевного света симфонии -
+				Ничуть не труднее чем быть человеком.
+			</div>
+		</div>
+	</div>
+</div>
 	<script src="js/app.min.js"></script>
 </body>
 
