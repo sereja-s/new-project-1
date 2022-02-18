@@ -1,3 +1,10 @@
 // Zlatmax
 
 @include adaptiv-value("column-gap", 60, 20, 1); // подключили адаптивное свойство из src/base/mixins.scss
+
+
+@media (any-hover: hover) {
+		&:hover {
+			text-decoration: underline;
+		}
+	}

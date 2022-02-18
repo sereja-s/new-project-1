@@ -42,3 +42,8 @@ import Swiper, { Navigation, Pagination } from 'swiper';
 
 // инициализация Swiper:
 const swiper = new Swiper();
+
+//================================================================================================================================
+
+// Свои скрипты 
+import "./files/script.js"

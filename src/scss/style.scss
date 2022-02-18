@@ -45,21 +45,23 @@ body {
 	color: $mainColor;
 	font-family: $fontFamily;
 	font-size: $fontSize;
-	/* &._lock {
-		overflow: hidden;
-	} */
 	// скролл заблокирован
-	.lock & {
+	&.lock {
 		overflow: hidden;
 		touch-action: none;
 	}
+	// скролл заблокирован
+	/* 	.lock & {
+		overflow: hidden;
+		touch-action: none;
+	} */
 }
 
 // оболочка
 .wrapper {
 	width: 100%;
 	min-height: 100%;
-	overflow: hidden;
+	overflow-y: auto;
 	display: flex;
 	flex-direction: column;
 
@@ -79,7 +81,7 @@ body {
 	max-width: $maxWidthContainer + px;
 	margin: 0 auto;
 	padding: 0 15px; // поля, что бы содержимое контейнера не прилипало к краям
-	overflow: hidden;
+	//overflow: hidden;
 	@media (max-width: 768px) {
 		padding: 0 10px;
 	}

@@ -14,7 +14,9 @@
 	}
 }
 3- раскомментируем попап в файле: src/html/popup.html и укажем:
-		id="callback" // идентификатор попапа   +  в src/html/header.html пропишем в ссылке открывающей попап: href="#callback" и добавим класс: popup-link
+		id="callback" // идентификатор попапа  
+		// +  в src/html/header.html пропишем в ссылке открывающей попап: href="#callback" и добавим класс: popup-link
 
 		для закрывающей кнопки (ссылки) укажем: 
-			href="#header" // ссылаемся на фиксированную шапку с id="header" (чтобы при закрытии модального окна, не возвращаться на начало страницы)  +  в src/html/header.html пропишем для header: id="header" и добавим класс: lock-padding
+			href="#header" // ссылаемся на фиксированную шапку с id="header" (чтобы при закрытии модального окна, не возвращаться на начало страницы) 
+			// +  в src/html/header.html пропишем для header: id="header" и добавим класс: lock-padding
