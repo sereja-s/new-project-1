@@ -5,10 +5,15 @@ import { isMobile } from "./functions.js";
 // Вешаем событие при клике
 document.addEventListener("click", documentActions);
 
+// Для построения структуры (рядов) колонок будем для каждого объекта с классом: sub-menu-catalog__block (если они есть) добовлять дополнительные классы с ID: sub-menu-catalog__block_${menuBlockItems} 
 const menuBlock = document.querySelectorAll('.sub-menu-catalog__block');
+// если объекты с классом: sub-menu-catalog__block есть бегаем по ним
 if (menuBlock.length) {
+	// бегаем по ним:
 	menuBlock.forEach(menuBlock => {
+		// получаем количество любых объектов (здесь: категорий)
 		const menuBlockItems = menuBlock.querySelectorAll('.sub-menu-catalog__category').length;
+		// добавляем блоку класс: sub-menu-catalog__block_${menuBlockItems} с количеством категорий:
 		menuBlock.classList.add(`sub-menu-catalog__block_${menuBlockItems}`);
 	});
 }

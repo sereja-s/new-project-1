@@ -1,6 +1,9 @@
 // Zlatmax
 
-@include adaptiv-value("column-gap", 60, 20, 1); // подключили адаптивное свойство из src/base/mixins.scss
+@include adaptiv-value("column-gap", 60, 20, 1); // подключили адаптивное свойство из src/base/mixins.scss- 1-я версия (px)
+
+// @include adaptiveValue("свойство которое будет изменяться", окно ОТ, окно ДО, в диапазоне ОТ, в диапазоне ДО, 1);
+@include adaptiveValue("font-size", 30, 20, 992, 320, 1); // 2-я версия (в относительных единицах, с указанием диапазона размера экрана)
 
 
 @media (any-hover: hover) {
